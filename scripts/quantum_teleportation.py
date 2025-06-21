@@ -7,6 +7,7 @@ import numpy as np
 from qiskit import QuantumCircuit, transpile
 from qiskit_aer import AerSimulator
 from qiskit.visualization import plot_bloch_multivector
+import matplotlib.pyplot as plt
 
 
 def create_message_state(circuit, qubit_index, message_angle):
@@ -105,4 +106,5 @@ final_statevector = result_sv.get_statevector()
 
 # Display the final state on a Bloch Sphere. q2 should match the initial state of q0.
 print("Displaying Bloch sphere. Qubit 2 should be in the original message state.")
-plot_bloch_multivector(final_statevector).show()
+plot_bloch_multivector(final_statevector)
+plt.show()  # This will block execution until you close the plot window
