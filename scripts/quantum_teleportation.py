@@ -1,13 +1,23 @@
 # quantum_teleportation.py
 #
+# Author: phantom assist
+# Date: 2025-06-21
+# Version: 1.11
+#
+# Description:
 # This script demonstrates the quantum teleportation protocol, which transfers
 # the state of one qubit to another using entanglement and classical communication.
+# It uses Qiskit to build and simulate the protocol. This is a simulation only and the script does not leverage qc effects
+#
+# Changelog:
+# v1.1 - Added 'plt.show()' to block script execution and allow the
+#        Bloch sphere visualization to be viewed.
+# v1.0 - Initial working version with modern Qiskit syntax.
 
 import numpy as np
 from qiskit import QuantumCircuit, transpile
 from qiskit_aer import AerSimulator
 from qiskit.visualization import plot_bloch_multivector
-import matplotlib.pyplot as plt
 
 
 def create_message_state(circuit, qubit_index, message_angle):
@@ -106,5 +116,4 @@ final_statevector = result_sv.get_statevector()
 
 # Display the final state on a Bloch Sphere. q2 should match the initial state of q0.
 print("Displaying Bloch sphere. Qubit 2 should be in the original message state.")
-plot_bloch_multivector(final_statevector)
-plt.show()  # This will block execution until you close the plot window
+plot_bloch_multivector(final_statevector).show()
