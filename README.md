@@ -1,2 +1,2 @@
 # qc
-Quantum computing repo
+fun
